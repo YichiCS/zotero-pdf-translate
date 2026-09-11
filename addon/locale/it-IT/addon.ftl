@@ -159,6 +159,10 @@ service-youdaozhiyunllm-dialog-stream=Stream
 
 readerpopup-translate-label=Traduci
 readerpopup-addToNote-label=Aggiungi traduzione alla nota
+readerpopup-fontSize-label=Text Font
+readerpopup-fontSize-increase=Aumenta la dimensione del testo
+readerpopup-fontSize-decrease=Riduci la dimensione del testo
+readerpopup-fontSize-hint=Dimensione del testo in px (6-48). Premi Invio per applicare; puoi anche tenere premuto Ctrl/Cmd e scorrere sul testo.
 
 pref-title=Translate
 

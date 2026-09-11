@@ -3,7 +3,7 @@
   "version": "2.4.7",
   "description": "Translate PDF, EPub, webpage, metadata, annotations, notes to the target language. Support 20+ translate services.",
   "config": {
-    "addonName": "Translate for Zotero",
+    "addonName": "Translate for Zotero -yichi",
     "addonID": "zoteropdftranslate@euclpts.com",
     "addonRef": "zoteropdftranslate",
     "prefsPrefix": "extensions.zotero.ZoteroPDFTranslate",

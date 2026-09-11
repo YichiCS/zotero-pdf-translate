@@ -253,6 +253,12 @@ function buildPrefsPane() {
     });
 
   doc
+    .querySelector(`#${makeId("showPopupFontSizeControls")}`)
+    ?.addEventListener("command", (e: Event) => {
+      onPrefsEvents("updateFontSize");
+    });
+
+  doc
     .querySelector(`#${makeId("reset-titleTranslation")}`)
     ?.addEventListener("command", (e: Event) => {
       ztoolkit

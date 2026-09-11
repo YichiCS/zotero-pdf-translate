@@ -5,6 +5,11 @@ import { getLastTranslateTask } from "../utils/task";
 import { TranslatorPanel } from "../elements/panel";
 import { isWindowAlive } from "../utils/window";
 import { services } from "./services";
+import {
+  applyFontSizeStyle,
+  getFontSize,
+  getLineHeight,
+} from "../utils/fontSize";
 
 let paneKey = "";
 
@@ -227,8 +232,8 @@ function buildExtraPanel(doc: Document) {
                 multiline: "true",
               },
               styles: {
-                fontSize: `${getPref("fontSize")}px`,
-                lineHeight: getPref("lineHeight") as string,
+                fontSize: `${getFontSize()}px`,
+                lineHeight: String(getLineHeight()),
               },
             },
           ],
@@ -266,6 +271,10 @@ function updateExtraPanel(container: HTMLElement | Document) {
     panel.item = Zotero.Items.get(lastTask?.itemId || -1);
     panel.render();
   }
+
+  Array.from(
+    container.querySelectorAll("#extra-container editable-text"),
+  ).forEach((elem) => applyFontSizeStyle(elem as HTMLElement));
 
   const extraTasks = lastTask?.extraTasks;
   if (extraTasks?.length === 0) {

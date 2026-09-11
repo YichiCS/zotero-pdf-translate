@@ -25,6 +25,7 @@ declare namespace _ZoteroTypes {
       "targetLanguage": string;
       "fontSize": string;
       "lineHeight": string;
+      "showPopupFontSizeControls": boolean;
       "splitChar": string;
       "resultRegex": string;
       "rawResultOrder": boolean;

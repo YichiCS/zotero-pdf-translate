@@ -9,6 +9,10 @@ import {
   putTranslateTaskAtHead,
 } from "../utils/task";
 import type { TranslationServices } from "../modules/services";
+import {
+  applyFontSizeStyle,
+  registerFontSizeWheelZoom,
+} from "../utils/fontSize";
 
 //@ts-expect-error addon instance not typed
 const services = Zotero[config.addonInstance].data.translate
@@ -290,6 +294,10 @@ export class TranslatorPanel extends PluginCEBase {
     const rawArea = this._queryID("raw-text") as HTMLElement;
     const resultArea = this._queryID("result-text") as HTMLElement;
 
+    // Ctrl/Cmd + wheel over the text areas zooms the translation text
+    registerFontSizeWheelZoom(rawArea);
+    registerFontSizeWheelZoom(resultArea);
+
     rawArea.style.flex = `${getPref("customRawRatio")} 1 0%`;
     resultArea.style.flex = `${getPref("customResultRatio")} 1 0%`;
 
@@ -390,8 +398,7 @@ export class TranslatorPanel extends PluginCEBase {
     };
     const setTextBoxStyle = (type: string) => {
       const elem = this._queryID(type) as XUL.Textbox;
-      elem.style.fontSize = `${getPref("fontSize")}px`;
-      elem.style.lineHeight = getPref("lineHeight") as string;
+      applyFontSizeStyle(elem as unknown as HTMLElement);
     };
 
     updateHidden("engine", "showSidebarEngine");
